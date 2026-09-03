@@ -69,3 +69,17 @@ export const portfolioStats = [
   { label: "Live competitor ads", value: "348", delta: "+22 this week", dir: "up" },
   { label: "Open alerts", value: "16", delta: "5 high priority", dir: "down" },
 ];
+
+export const googleAdsMetrics = [
+  { label: "Impressions", value: "184,920", delta: "+8.4% vs prior period", dir: "up" },
+  { label: "Clicks", value: "8,416", delta: "+5.1% vs prior period", dir: "up" },
+  { label: "Cost", value: "$18,402", delta: "$1,598 below monthly budget", dir: "up" },
+  { label: "Conversions", value: "327", delta: "+12.7% vs prior period", dir: "up" },
+];
+
+export const googleAdsCampaigns = [
+  { name: "Search | New Nissan", status: "Enabled", impressions: 73918, clicks: 3806, cost: "$8,421", conversions: 154, allConversions: 167 },
+  { name: "Search | Used Vehicles", status: "Enabled", impressions: 56821, clicks: 2641, cost: "$5,934", conversions: 103, allConversions: 111 },
+  { name: "Search | Service", status: "Enabled", impressions: 40122, clicks: 1419, cost: "$2,912", conversions: 58, allConversions: 68 },
+  { name: "Brand | Viva Nissan", status: "Enabled", impressions: 14059, clicks: 550, cost: "$1,135", conversions: 12, allConversions: 15 },
+];

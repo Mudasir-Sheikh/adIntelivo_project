@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 const links = [
   { to: "/features", label: "Features" },
+  { to: "/google-ads", label: "Google Ads integration" },
   { to: "/how-it-works", label: "How it works" },
   { to: "/demo", label: "Product demo" },
   { to: "/pricing", label: "Pricing" },
@@ -62,14 +63,15 @@ function Footer() {
               AdIntelivo
             </Link>
             <p>
-              Competitive ad intelligence for marketing agencies. Built and
-              operated by AdIntelivo, a software product for agency teams
-              managing paid search for local businesses.
+              Advertising intelligence and first-party reporting for marketing
+              agencies. Connect authorized Google Ads accounts for reporting
+              and monitor public competitor activity in one workspace.
             </p>
           </div>
           <div>
             <h4>Product</h4>
             <Link to="/features">Features</Link>
+            <Link to="/google-ads">Google Ads integration</Link>
             <Link to="/how-it-works">How it works</Link>
             <Link to="/demo">Product demo</Link>
             <Link to="/pricing">Pricing</Link>

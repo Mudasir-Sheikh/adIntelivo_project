@@ -1,21 +1,40 @@
-# AdIntelivo — marketing site + product demo (frontend only)
+# AdIntelivo — marketing site + product demo
 
-React + Vite. No backend, no database, no API calls. Every number and business
-name in the app is sample data in `src/data/demo.js`.
+React + Vite frontend. The public demo uses illustrative sample data and does not
+make live Google Ads API calls.
 
-## Pages
+## Why this version exists
+
+The Google Ads API Compliance team said the previous company website did not
+contain content related to the API application. This version makes the intended
+Google Ads API use case visible from the homepage, navigation, product demo,
+company description, and data-usage policy.
+
+The central distinction is explicit throughout the site:
+
+- **Google Ads API:** first-party reporting for accounts an authenticated agency
+  user is already authorized to access.
+- **Competitive intelligence:** public search observations, public landing pages,
+  and separately licensed market data. It is not sourced from competitors'
+  private Google Ads accounts.
+
+The Google Ads integration is described as **reporting/read-only product use**.
+The site does not claim that the OAuth scope itself is read-only; it states that
+AdIntelivo restricts its application behavior to reporting/read operations and
+no mutate operations.
+
+## Important routes for an API reviewer
 
 | Route | Purpose |
 |---|---|
-| `/` | Landing page — hero rank board, value prop, sample competitor ads |
-| `/features` | Feature grid |
-| `/how-it-works` | Five-step process |
-| `/demo` | Interactive product demo: portfolio, competitor ads, rank comparison, keyword gaps, alerts |
-| `/pricing` | Starter / Growth / Agency plans |
-| `/about` | Company and business model |
-| `/contact` | Contact form (client-side only, sends nothing) |
+| `/` | Homepage that immediately explains both first-party Google Ads reporting and competitive intelligence |
+| `/google-ads` | Dedicated Google Ads API use-case page with connection flow, reporting mock-up, API boundary and prohibited operations |
+| `/demo` | Interactive sample product, opening on an authorized Google Ads reporting view |
+| `/features` | Product capabilities including Google Ads reporting |
+| `/how-it-works` | Explicit Google OAuth / authorized-account step |
+| `/about` | Business model and data-source separation |
+| `/data-usage` | Detailed Google Ads API purpose, fields, authorization, isolation, retention and deletion |
 | `/privacy` | Privacy policy |
-| `/data-usage` | Data usage & API — Google Ads API intended use, limits, retention |
 | `/terms` | Terms of service |
 
 ## Run locally
@@ -25,45 +44,40 @@ npm install
 npm run dev
 ```
 
-## Push to GitHub
-
-```bash
-git init
-git add .
-git commit -m "AdIntelivo marketing site and product demo"
-git branch -M main
-git remote add origin https://github.com/Mudasir-Sheikh/adIntelivo_project.git
-git push -u origin main
-```
-
 ## Deploy on Vercel
 
-1. vercel.com → Add New → Project → import `adIntelivo_project`.
-2. Framework preset: **Vite**. Build command `npm run build`, output directory `dist`.
-3. Deploy.
+1. Vercel → Add New → Project → import this repository.
+2. Framework preset: **Vite**.
+3. Build command: `npm run build`.
+4. Output directory: `dist`.
+5. Deploy and verify these URLs manually:
+   - `/`
+   - `/google-ads`
+   - `/demo`
+   - `/data-usage`
+   - `/privacy`
+   - `/terms`
 
-`vercel.json` already contains the SPA rewrite, so deep links like
-`/data-usage` resolve correctly on refresh.
+`vercel.json` contains the SPA rewrite for deep links.
 
-### If you deploy to GitHub Pages instead
+## Before asking Google to re-review
 
-GitHub Pages has no SPA rewrite. Either switch `BrowserRouter` to `HashRouter`
-in `src/main.jsx`, or add a `404.html` that copies `index.html`. Vercel is the
-easier path.
+1. Deploy this updated version to the exact company URL supplied in the Google Ads
+   API application.
+2. Make sure the site is publicly reachable without login.
+3. Verify the navigation link **Google Ads integration** works.
+4. Verify the `/google-ads`, `/demo`, `/data-usage`, and `/privacy` pages work on a
+   fresh browser session.
+5. Make sure `api@adintelivo.com` (or another monitored role-based address) is real
+   before publishing it.
+6. Make sure the description in your Google Ads API application matches the site:
+   **reporting/read-only access to authorized client Google Ads accounts**.
+7. If you previously described competitor intelligence as being supplied by the
+   Google Ads API, correct that. Competitor data must be described as a separate
+   public/licensed data source.
+8. Do not claim the product creates or edits campaigns unless you actually apply
+   for and implement the relevant permissible use and functionality.
 
-## Before you resubmit the Google Ads API form
-
-- Deploy first and submit the **live domain**, not the GitHub repo URL. The
-  rejection was because a repository page has no site content on it.
-- Point the application at `https://your-domain/data-usage` for the API use case
-  and `https://your-domain/privacy` for data handling.
-- Use a role-based developer contact address (`api@adintelivo.com` or
-  `google-ads-api@adintelivo.com`), as the rejection email asked.
-- Replace the placeholder email addresses in `Privacy.jsx`, `DataUsage.jsx`,
-  `Terms.jsx` and `Marketing.jsx` with addresses that actually receive mail.
-- Ideally point `adintelivo.com` at the Vercel deployment rather than submitting
-  a `*.vercel.app` subdomain.
-
-The legal pages are drafted to describe this product accurately, but they are
-not legal advice. Have a lawyer review them before they go live.
-"# adIntelivo_project" 
+The policy text should match the real production implementation before launch.
+If your actual storage, deletion, security, or account-connection behavior differs,
+edit those statements so the public policy remains accurate.

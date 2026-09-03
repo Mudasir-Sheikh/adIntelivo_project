@@ -6,12 +6,93 @@ import {
   competitorAds,
   alerts,
   keywordGaps,
+  googleAdsMetrics,
+  googleAdsCampaigns,
 } from "../data/demo";
 
 function pill(v) {
   if (v === null || v === undefined) return <span className="pill pill--none">—</span>;
   const cls = v <= 3 ? "pill--top" : v <= 10 ? "pill--mid" : "pill--low";
   return <span className={`pill ${cls}`}>{v}</span>;
+}
+
+
+function GoogleAdsAccount() {
+  return (
+    <>
+      <div className="demo-title-row">
+        <div>
+          <h2 style={{ fontSize: "1.5rem" }}>Google Ads — Viva Nissan</h2>
+          <p style={{ color: "var(--ink-soft)", fontSize: "0.94rem" }}>
+            Sample first-party reporting view for an account connected by an
+            authorized agency user. This public demo makes no live Google Ads API call.
+          </p>
+        </div>
+        <span className="status status--ok">Connected</span>
+      </div>
+
+      <div className="demo-connection-banner">
+        <div>
+          <span className="eyebrow">Source</span>
+          <strong>Google Ads API · authorized client account</strong>
+        </div>
+        <div>
+          <span className="eyebrow">Product use</span>
+          <strong>Reporting / read-only operations</strong>
+        </div>
+        <div>
+          <span className="eyebrow">Customer ID</span>
+          <strong>•••-•••-1234</strong>
+        </div>
+      </div>
+
+      <div className="grid grid--4" style={{ margin: "22px 0 28px" }}>
+        {googleAdsMetrics.map((s) => (
+          <div className="stat" key={s.label}>
+            <div className="stat__label">{s.label}</div>
+            <div className="stat__value">{s.value}</div>
+            <div className={`stat__delta ${s.dir}`}>{s.delta}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="tablewrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Status</th>
+              <th className="num">Impressions</th>
+              <th className="num">Clicks</th>
+              <th className="num">Cost</th>
+              <th className="num">Conversions</th>
+              <th className="num">All conv.</th>
+            </tr>
+          </thead>
+          <tbody>
+            {googleAdsCampaigns.map((c) => (
+              <tr key={c.name}>
+                <td style={{ fontWeight: 600 }}>{c.name}</td>
+                <td><span className="status status--ok">{c.status}</span></td>
+                <td className="num">{c.impressions.toLocaleString()}</td>
+                <td className="num">{c.clicks.toLocaleString()}</td>
+                <td className="num">{c.cost}</td>
+                <td className="num">{c.conversions}</td>
+                <td className="num">{c.allConversions}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="callout" style={{ marginTop: 22 }}>
+        <p>
+          Google Ads data is first-party data from the connected client account.
+          The competitor views in this demo use separate public/sample sources and
+          are not derived from competitors&rsquo; Google Ads accounts.
+        </p>
+      </div>
+    </>
+  );
 }
 
 function Portfolio() {
@@ -200,6 +281,7 @@ function Alerts() {
 }
 
 const views = [
+  ["google-ads", "Google Ads account", GoogleAdsAccount],
   ["portfolio", "Portfolio", Portfolio],
   ["competitors", "Competitor ads", Competitors],
   ["ranks", "Rank comparison", Ranks],
@@ -208,7 +290,7 @@ const views = [
 ];
 
 export default function Demo() {
-  const [view, setView] = useState("portfolio");
+  const [view, setView] = useState("google-ads");
   const Active = views.find((v) => v[0] === view)[2];
 
   return (
@@ -217,9 +299,10 @@ export default function Demo() {
         <div className="wrap">
           <h1 style={{ fontSize: "clamp(2rem,4vw,2.9rem)" }}>Product demo</h1>
           <p>
-            A working walkthrough of the AdIntelivo interface, populated with
-            sample accounts. Nothing here is connected to a live advertiser
-            account and no data is stored.
+            A public product walkthrough populated with illustrative sample data. It
+            shows how authorized Google Ads reporting and separate competitive
+            intelligence appear in the product. Nothing here is connected to a
+            live advertiser account and no data is stored.
           </p>
         </div>
       </section>

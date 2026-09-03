@@ -6,7 +6,7 @@ export default function Privacy() {
       <section className="pagehead">
         <div className="wrap">
           <h1 style={{ fontSize: "clamp(2rem,4vw,2.9rem)" }}>Privacy policy</h1>
-          <p className="updated">Last updated 2 September 2026</p>
+          <p className="updated">Last updated 3 September 2026</p>
         </div>
       </section>
 
@@ -62,7 +62,7 @@ export default function Privacy() {
               </tr>
               <tr>
                 <td>Connected advertising data</td>
-                <td>Where you connect an advertising account, read-only campaign and performance metrics</td>
+                <td>Where you connect a Google Ads account, account structure and performance reporting data retrieved through reporting/read-only product operations</td>
                 <td>To show your own client&rsquo;s performance alongside competitive context</td>
               </tr>
               <tr>
@@ -122,18 +122,18 @@ export default function Privacy() {
           <ul>
             <li>Account and configuration data: for as long as your subscription is active, then 90 days, then deleted.</li>
             <li>Collected competitive observations: rolling 24 months, so year-over-year comparison is possible.</li>
-            <li>Connected advertising data: 13 months, or until you disconnect the account, whichever is sooner.</li>
+            <li>Connected advertising data: up to 13 months while the account remains connected; after disconnection or workspace closure, stored connected-account data is scheduled for deletion within 30 days, except records we are legally required to retain.</li>
             <li>Billing records: 7 years, as required for tax and accounting.</li>
             <li>Security and error logs: 90 days.</li>
           </ul>
 
           <h2>9. Security</h2>
           <p>
-            Data is encrypted in transit with TLS and at rest. Third-party
-            credentials and access tokens are stored encrypted with AES-256 and
-            are never displayed back in full. Access to production systems is
-            restricted to named staff, protected by multi-factor authentication
-            and logged. We review access quarterly.
+            We use transport encryption for data in transit and access controls for
+            production systems. Third-party access tokens are treated as sensitive
+            credentials, stored server-side rather than exposed in the public
+            client interface, and are accessible only to the systems and personnel
+            that need them to provide the service.
           </p>
 
           <h2>10. Your rights</h2>

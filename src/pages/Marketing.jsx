@@ -13,6 +13,7 @@ function PageHead({ title, sub }) {
 }
 
 const features = [
+  ["Google Ads reporting", "Connect an authorized client Google Ads account and review first-party account and campaign performance in the agency workspace. The integration is reporting-only by product design."],
   ["Competitor discovery", "Name the client and the market. AdIntelivo identifies the businesses genuinely competing for the same searches and drops the ones that only look similar on paper."],
   ["Ad copy capture", "Headlines, descriptions, sitelinks and callouts, stored with first-seen and last-seen dates so you can show a client exactly when an offer changed."],
   ["Creative grouping", "Dozens of near-identical variants collapse into a handful of distinct messages, so review takes minutes."],
@@ -29,7 +30,7 @@ export function Features() {
     <>
       <PageHead
         title="Everything in one workspace"
-        sub="Nine capabilities that replace the spreadsheet, the screenshot folder and the Monday morning scramble."
+        sub="First-party Google Ads reporting and competitive intelligence in one agency workspace, with the source of every data point kept clear."
       />
       <section className="section">
         <div className="wrap grid grid--3">
@@ -46,7 +47,8 @@ export function Features() {
 }
 
 const steps = [
-  ["Add the account", "Enter the client's business name, website and the market they sell into. That is the whole setup — no tag, no script, no code on the client's site."],
+  ["Add the client", "Enter the client business name, website and market. Competitive monitoring can be configured without installing code on the client website."],
+  ["Connect Google Ads when needed", "An authorized agency user can use Google OAuth to connect a client account the agency already has permission to access. AdIntelivo uses that connection for reporting/read operations only."],
   ["Confirm competitors", "AdIntelivo proposes the businesses competing for the same searches. You approve, remove or add your own. Most agencies adjust one or two."],
   ["Daily collection runs", "Once a day the tracked keyword set is observed across desktop and mobile. Ads, ranks and landing pages are recorded and compared against yesterday."],
   ["Changes become alerts", "A new advertiser, a changed offer, a rank drop or a brand-term hijack raises an alert in the app and in Slack or email."],
@@ -58,7 +60,7 @@ export function HowItWorks() {
     <>
       <PageHead
         title="How AdIntelivo works"
-        sub="From adding an account to sending the first client report, usually inside a day."
+        sub="Combine authorized first-party Google Ads reporting with separately sourced competitive intelligence."
       />
       <section className="section">
         <div className="wrap" style={{ maxWidth: 820 }}>
@@ -163,11 +165,11 @@ export function About() {
         <div className="wrap prose">
           <h2>What we do</h2>
           <p>
-            AdIntelivo is a subscription software product. Marketing agencies
-            subscribe, add the client accounts they manage, and use the product
-            to monitor the competitive landscape those clients advertise in. The
-            output is competitive intelligence: who is advertising, what they are
-            saying, and where each business ranks.
+            AdIntelivo is a subscription software product for marketing agencies.
+            Agencies can connect Google Ads accounts they are authorized to access
+            for first-party reporting, and separately monitor public competitive
+            activity in the same workspace. The product keeps those sources distinct
+            so client performance is never confused with competitor observations.
           </p>
 
           <h2>Our business model</h2>
@@ -191,11 +193,12 @@ export function About() {
           <h2>How we handle data</h2>
           <p>
             We collect publicly visible search results, publicly visible ad
-            creatives and publicly reachable landing pages. Where an agency
-            chooses to connect a client&rsquo;s own advertising account, that
-            data is read only, used only to display that client&rsquo;s own
-            performance back to the agency, and is never shown to any other
-            customer. The full detail is on the{" "}
+            creatives and publicly reachable landing pages for competitive
+            intelligence. Separately, where an agency chooses to connect a
+            client&rsquo;s own Google Ads account, AdIntelivo uses reporting/read
+            operations to display that account&rsquo;s first-party performance back
+            to the authorized agency workspace. It is not used to access
+            competitors&rsquo; private Google Ads data. The full detail is on the{" "}
             <Link to="/data-usage">Data usage &amp; API</Link> page.
           </p>
 

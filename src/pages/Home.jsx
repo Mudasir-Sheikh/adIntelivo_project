@@ -13,98 +13,129 @@ export default function Home() {
       <section className="hero">
         <div className="wrap hero__grid">
           <div>
-            <span className="hero__tag">Live ad intelligence for agencies</span>
-            <h1>Know what your client&rsquo;s competitors ran today.</h1>
+            <span className="hero__tag">Advertising intelligence for agencies</span>
+            <h1>See your client&rsquo;s Google Ads performance — and the market around it.</h1>
             <p className="lede">
-              AdIntelivo watches the search results your clients compete in. It
-              captures competitor ad copy as it changes, tracks who ranks where,
-              and turns the difference into a report you can put in front of the
-              client on Monday morning.
+              AdIntelivo gives agencies one workspace for first-party Google Ads
+              reporting and public competitive intelligence. Connect accounts the
+              agency is authorized to access, review campaign performance, and
+              separately track the ads and rankings competitors show in public search.
             </p>
             <div className="btn-row">
-              <Link to="/demo" className="btn btn--primary">
-                Walk through the demo
+              <Link to="/google-ads" className="btn btn--primary">
+                See the Google Ads integration
               </Link>
-              <Link to="/how-it-works" className="btn btn--ghost">
-                How it works
+              <Link to="/demo" className="btn btn--ghost">
+                Open product demo
               </Link>
             </div>
             <p className="hero__note">
-              Built for agencies managing 5 to 100 local accounts. Sample data
-              shown throughout this site.
+              Google Ads account data is accessed only after user authorization.
+              Competitor intelligence does not come from competitors&rsquo; private
+              Google Ads accounts. Sample data shown on this public site.
             </p>
           </div>
 
-          <div className="board">
-            <div className="board__head">
-              <span className="board__dot" aria-hidden="true" />
-              Viva Nissan &middot; El Paso, TX
-              <span className="board__stamp">refreshed 06:00</span>
+          <div className="home-stack">
+            <div className="mini-account-card">
+              <div className="mini-account-card__top">
+                <div>
+                  <div className="eyebrow">Authorized Google Ads account</div>
+                  <strong>Viva Nissan</strong>
+                </div>
+                <span className="status status--ok">Connected</span>
+              </div>
+              <div className="mini-metrics">
+                <div><span>Cost</span><strong>$18.4k</strong></div>
+                <div><span>Clicks</span><strong>8,416</strong></div>
+                <div><span>Conversions</span><strong>327</strong></div>
+              </div>
+              <div className="mini-account-card__note">Reporting / read-only product use</div>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Keyword</th>
-                  <th>You</th>
-                  <th>Casa</th>
-                  <th>Charlie C.</th>
-                  <th>Fox T.</th>
-                  <th>Ads</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rankBoard.map((r) => (
-                  <tr key={r.keyword}>
-                    <td>
-                      <div className="kw">{r.keyword}</div>
-                      <div className="vol">{r.volume}/mo</div>
-                    </td>
-                    <td>{rankPill(r.you)}</td>
-                    <td>{rankPill(r.a)}</td>
-                    <td>{rankPill(r.b)}</td>
-                    <td>{rankPill(r.c)}</td>
-                    <td>
-                      <span className="pill pill--ad">{r.ads}</span>
-                    </td>
+
+            <div className="board">
+              <div className="board__head">
+                <span className="board__dot" aria-hidden="true" />
+                Public market view · El Paso, TX
+                <span className="board__stamp">sample</span>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Keyword</th>
+                    <th>You</th>
+                    <th>Casa</th>
+                    <th>Charlie C.</th>
+                    <th>Fox T.</th>
+                    <th>Ads</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {rankBoard.map((r) => (
+                    <tr key={r.keyword}>
+                      <td>
+                        <div className="kw">{r.keyword}</div>
+                        <div className="vol">{r.volume}/mo</div>
+                      </td>
+                      <td>{rankPill(r.you)}</td>
+                      <td>{rankPill(r.a)}</td>
+                      <td>{rankPill(r.b)}</td>
+                      <td>{rankPill(r.c)}</td>
+                      <td><span className="pill pill--ad">{r.ads}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section api-strip-section">
+        <div className="wrap">
+          <div className="api-strip">
+            <div>
+              <span className="api-strip__label">Google Ads API use case</span>
+              <h2>Authorized, first-party reporting only.</h2>
+              <p>
+                The Google Ads API is used to retrieve reporting data for Google
+                Ads accounts the agency already manages. AdIntelivo does not use
+                it to retrieve competitors&rsquo; private spend, conversions or settings.
+              </p>
+            </div>
+            <Link to="/google-ads" className="btn btn--ghost">View integration details</Link>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="wrap">
-          <h2>The three questions clients actually ask</h2>
+          <h2>Two data sources. One agency workspace.</h2>
           <p className="lede">
-            Agencies lose accounts in the gap between a spend report and a
-            straight answer. AdIntelivo is built around the answer.
+            The client&rsquo;s own advertising performance and public competitor
+            observations answer different questions, so AdIntelivo keeps them
+            clearly separated in the product and in reporting.
           </p>
-          <div className="grid grid--3" style={{ marginTop: 34 }}>
-            <div className="feature">
-              <h3>Who is bidding against me?</h3>
+          <div className="grid grid--2" style={{ marginTop: 34 }}>
+            <div className="source-card source-card--first">
+              <div className="source-card__tag">FIRST-PARTY</div>
+              <h3>Connected Google Ads reporting</h3>
               <p>
-                Competitors are identified per market and per business type, then
-                confirmed against what actually appears in the results — not
-                guessed from a category list.
+                Account and campaign reporting for client accounts connected by an
+                authorized user through Google OAuth. Used for spend, impressions,
+                clicks, conversions and related reporting views.
               </p>
+              <Link to="/google-ads">See exactly how the API is used →</Link>
             </div>
-            <div className="feature">
-              <h3>What are they saying?</h3>
+            <div className="source-card">
+              <div className="source-card__tag">PUBLIC MARKET DATA</div>
+              <h3>Competitor intelligence</h3>
               <p>
-                Every headline, description, sitelink and offer is captured with
-                a first-seen and last-seen date, so a changed offer is visible
-                the day it changes.
+                Publicly observed competitor ads, rankings and landing pages plus
+                licensed market metrics. This data is collected separately and is
+                not represented as private Google Ads account data.
               </p>
-            </div>
-            <div className="feature">
-              <h3>Where am I losing?</h3>
-              <p>
-                Rank comparison across organic, maps and paid placement shows the
-                exact queries where a competitor is visible and your client is
-                not.
-              </p>
+              <Link to="/features">See competitive intelligence features →</Link>
             </div>
           </div>
         </div>
@@ -112,22 +143,48 @@ export default function Home() {
 
       <section className="section section--wash">
         <div className="wrap">
-          <h2>Competitor ads, as captured</h2>
+          <h2>The questions agencies need answered</h2>
+          <div className="grid grid--3" style={{ marginTop: 34 }}>
+            <div className="feature">
+              <h3>How is my client performing?</h3>
+              <p>
+                Review connected-account reporting without switching between
+                separate client interfaces and spreadsheets.
+              </p>
+            </div>
+            <div className="feature">
+              <h3>Who is competing in the market?</h3>
+              <p>
+                Identify businesses appearing for the same searches and track
+                their publicly visible ad messages and search visibility.
+              </p>
+            </div>
+            <div className="feature">
+              <h3>What changed?</h3>
+              <p>
+                Bring performance movements and observed market changes into the
+                same agency workflow while preserving the source of each data point.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <h2>Competitor ads, as publicly observed</h2>
           <p className="lede">
-            Sample of live creatives collected for one account. Near-duplicate
-            variants are grouped so you review four messages, not forty strings.
+            Sample creative observations for one market. These examples are not
+            sourced from competitors&rsquo; Google Ads accounts.
           </p>
           <div className="grid grid--2" style={{ marginTop: 30 }}>
             {competitorAds.map((ad) => (
               <div className="adcard" key={ad.domain}>
-                <div className="adcard__dom">
-                  Ad &middot; {ad.domain} &middot; {ad.position}
-                </div>
+                <div className="adcard__dom">Ad · {ad.domain} · {ad.position}</div>
                 <div className="adcard__title">{ad.title}</div>
                 <p className="adcard__body">{ad.body}</p>
                 <div className="adcard__meta">
-                  First seen {ad.firstSeen} &middot; last seen {ad.lastSeen}{" "}
-                  &middot; {ad.variants} creative variants grouped
+                  First seen {ad.firstSeen} · last seen {ad.lastSeen} · {ad.variants} creative variants grouped
                 </div>
               </div>
             ))}
@@ -135,20 +192,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--wash">
         <div className="wrap center">
-          <h2>Put it in front of a client this week</h2>
+          <h2>Review the complete product flow</h2>
           <p className="lede">
-            Open the interactive demo to see the portfolio view, competitor
-            tracking, keyword gaps and alert feed with sample accounts.
+            The public demo uses sample data to show both connected-account
+            reporting and competitive intelligence without accessing any live
+            advertiser account.
           </p>
           <div className="btn-row" style={{ justifyContent: "center" }}>
-            <Link to="/demo" className="btn btn--primary">
-              Open the demo
-            </Link>
-            <Link to="/pricing" className="btn btn--ghost">
-              See pricing
-            </Link>
+            <Link to="/demo" className="btn btn--primary">Open the product demo</Link>
+            <Link to="/data-usage" className="btn btn--ghost">Read data usage</Link>
           </div>
         </div>
       </section>

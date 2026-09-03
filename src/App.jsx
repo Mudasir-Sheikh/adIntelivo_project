@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Demo from "./pages/Demo.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import DataUsage from "./pages/DataUsage.jsx";
+import GoogleAds from "./pages/GoogleAds.jsx";
 import Terms from "./pages/Terms.jsx";
 import { Features, HowItWorks, Pricing, About, Contact } from "./pages/Marketing.jsx";
 
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/features" element={<Features />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/demo" element={<Demo />} />
+        <Route path="/google-ads" element={<GoogleAds />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
