@@ -59,3 +59,9 @@ required?
 Thank you,
 AdIntelivo
 API contact: api@adintelivo.com
+
+## Crawler / reviewer accessibility
+
+The public marketing and policy routes are pre-rendered during `npm run build`. This means the Google Ads API use-case explanation, product demo, privacy policy, and data-usage text are present in the initial HTML response and do not depend on client-side JavaScript to become readable.
+
+After each Vercel deployment, open **View Page Source** for `/google-ads`, `/demo`, `/data-usage`, and `/privacy` and confirm the page copy is present inside the root element.

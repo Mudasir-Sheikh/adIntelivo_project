@@ -81,3 +81,29 @@ npm run dev
 The policy text should match the real production implementation before launch.
 If your actual storage, deletion, security, or account-connection behavior differs,
 edit those statements so the public policy remains accurate.
+
+## Static pre-rendering for public review pages
+
+Production builds pre-render every public marketing/compliance route into real HTML before deployment. This keeps the existing React/Vite SPA behavior in the browser while ensuring reviewers, search crawlers, and tools that do not execute JavaScript can still read the page content.
+
+The production build now runs:
+
+```bash
+npm run build
+```
+
+which performs the normal Vite client build, creates a temporary server-render bundle, and writes pre-rendered HTML for:
+
+- `/`
+- `/features`
+- `/google-ads`
+- `/how-it-works`
+- `/demo`
+- `/pricing`
+- `/about`
+- `/contact`
+- `/privacy`
+- `/data-usage`
+- `/terms`
+
+After deployment, verify with **View Page Source** (Ctrl+U), not only DevTools/Inspect. The source for `/google-ads`, `/data-usage`, and `/privacy` should contain the visible page text inside `<div id="root">...</div>` before any JavaScript executes.

@@ -3,5 +3,17 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/features", "destination": "/features/index.html" },
+    { "source": "/google-ads", "destination": "/google-ads/index.html" },
+    { "source": "/how-it-works", "destination": "/how-it-works/index.html" },
+    { "source": "/demo", "destination": "/demo/index.html" },
+    { "source": "/pricing", "destination": "/pricing/index.html" },
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/privacy", "destination": "/privacy/index.html" },
+    { "source": "/data-usage", "destination": "/data-usage/index.html" },
+    { "source": "/terms", "destination": "/terms/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
